@@ -1,0 +1,12 @@
+remote_theme: just-the-docs/just-the-docs
+
+title: Render Raw
+
+favicon_ico: "..assets/orange_turbine-mark-full_color-envelope.ico"
+
+nav_external_links:
+  - title: View on Blender Market
+    url: https://blendermarket.com/products/render-raw/?ref=806
+
+  - title: Contact Us
+    url: https://orangeturbine.com/#contact

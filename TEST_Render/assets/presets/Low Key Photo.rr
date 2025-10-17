@@ -1,0 +1,79 @@
+{
+    "version": "(1, 2, 15)",
+    "color_boost": -0.25,
+    "glare": 0.25,
+    "streaks": 0.0,
+    "glare_threshold": 2.0,
+    "highlight_color": [
+        0.5,
+        0.5,
+        0.5
+    ],
+    "clarity": 0.25,
+    "saturation_perceptual": 0.0,
+    "clarity_size": 0.25,
+    "distortion": 0.009999999776482582,
+    "dispersion": 0.025,
+    "grain": 0.15000000596046448,
+    "vignette_scale_x": 0.75,
+    "vignette_scale_y": 0.75,
+    "shadow_saturation": 0.5,
+    "vignette_factor": 0.25,
+    "vignette_linear_blend": 1.0,
+    "split_tone": 0.25,
+    "negative_bleed": 0.5,
+    "hue_perceptual": 0,
+    "highlight_blending": "SOFT_LIGHT",
+    "midtone_blending": "SOFT_LIGHT",
+    "shadow_blending": "SOFT_LIGHT",
+    "value_curves": [
+        [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                1.0,
+                1.0
+            ]
+        ],
+        [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                1.0,
+                1.0
+            ]
+        ],
+        [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                1.0,
+                1.0
+            ]
+        ],
+        [
+            [
+                0.0,
+                0.05000000074505806
+            ],
+            [
+                0.125,
+                0.10000000149011612
+            ],
+            [
+                0.5000000596046448,
+                0.4000000059604645
+            ],
+            [
+                1.0,
+                1.0
+            ]
+        ]
+    ]
+}
