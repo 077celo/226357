@@ -1,0 +1,72 @@
+'''
+Copyright (C) 2024 Orange Turbine
+https://orangeturbine.com
+orangeturbine@cgcookie.com
+
+This file is part of the Render Raw add-on, created by Jonathan Lampel for Orange Turbine.
+
+All code distributed with this add-on is open source as described below.
+
+Render Raw is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+'''
+
+import bpy
+from ..utilities.settings import Settings
+
+class FixSceneSettings(bpy.types.Operator):
+    bl_label = 'Reset Scene Color Settings'
+    bl_idname = "render.render_raw_fix_scene_settings"
+    bl_description = 'Sets the scene color management settings back to what Render Raw needs in order to function properly'
+    bl_options = {'REGISTER', 'UNDO'}
+
+    @classmethod
+    def poll(self, context):
+        RR = Settings(context)
+        try:
+            return RR.props_group
+        except:
+            return False
+    
+    def execute(self, context):
+        RR = Settings(context)
+        context.scene.display_settings.display_device = RR.props_group.display
+        context.scene.view_settings.view_transform = 'Standard'
+        context.scene.view_settings.exposure = 0
+        context.scene.view_settings.look = 'None'
+        context.scene.view_settings.use_curve_mapping = False
+        return{'FINISHED'}
+    
+
+class DisableRenderRaw(bpy.types.Operator):
+    bl_label = 'Disable Render Raw'
+    bl_idname = "render.render_raw_disable"
+    bl_description = (
+        'Disables Render raw and dismisses the upgrade warning. '
+        'You can always upgrade by enabling Render Raw later'
+    )
+    bl_options = {'REGISTER', 'UNDO'}
+
+    def execute(self, context):
+        context.scene.render_raw.enable_RR = False
+        context.scene.render_raw_scene.enable_RR = False
+        return{'FINISHED'}
+
+    
+def register():
+    bpy.utils.register_class(FixSceneSettings)
+    bpy.utils.register_class(DisableRenderRaw)
+
+def unregister():
+    bpy.utils.unregister_class(FixSceneSettings)
+    bpy.utils.unregister_class(DisableRenderRaw)
